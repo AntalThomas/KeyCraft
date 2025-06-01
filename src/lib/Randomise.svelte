@@ -101,7 +101,8 @@
       navigator.clipboard.writeText(randomPassword);
     }}
     title="Copy to clipboard"
-  />
+    aria-label="Copy password to clipboard"
+  ></button>
 </div>
 
 <style>
