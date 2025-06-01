@@ -60,11 +60,7 @@
 </button>
 
 <div class="generatedPassword">
-    <input
-        type="string"
-        value="{randomPassword}"
-        style="width: 100%; height: 2em; font-size: 1.2em;"
-    />
+    <input type="string" value="{randomPassword}" style="width: 100%; height: 2em; font-size: 1.2em;"/>
     <button class="copy-button" on:click={() => {
             navigator.clipboard.writeText(randomPassword);
         }}
@@ -104,7 +100,6 @@
     .optionsSelection {
         display: flex;
         flex-direction: column;
-        /* gap: 0.5em; */
         text-align: left;
         margin-top: 1em;
     }
