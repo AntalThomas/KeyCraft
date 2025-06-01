@@ -1,1 +1,1 @@
-# bwsext_RandomPasswordGenerator
+# Random Password Generator Extension
