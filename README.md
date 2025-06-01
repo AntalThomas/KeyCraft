@@ -10,7 +10,7 @@ KeyCraft is a browser extension build for simple and secure random password gene
 
 ## Installation
 
-** Link to the extension once on the app store goes here **
+*** Link to the extension once on the app store goes here ***
 
 ## Usage
 
