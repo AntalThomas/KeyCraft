@@ -7,8 +7,10 @@
   "type": "module",
   "scripts": {
     "dev": "wxt -b cft",
-    "build": "wxt build -b cft",
-    "zip": "wxt zip -b cft",
+    "build:chrome": "wxt build -b chrome",
+    "zip:chrome": "wxt zip -b chrome",
+    "build:firefox": "wxt build -b firefox",
+    "zip:firefox": "wxt zip -b firefox",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "postinstall": "wxt prepare"
   },
