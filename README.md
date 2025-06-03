@@ -17,8 +17,8 @@ KeyCraft is a powerful and easy-to-use browser extension designed to help you cr
 1. Click the KeyCraft icon in your browser's toolbar.
 2. Adjust the desired password length using the slider or input field.
 3. Select the character types you want in your password (e.g., symbols, numbers, uppercase, lowercase).
-4. Click the "Generate" button to create a new password.
-5. Click the copy icon next to the generated password to instantly save it to your clipboard.
+4. Click the ↻ button to create a new password.
+5. Click the ⿻ icon next to the generated password to instantly save it to your clipboard.
 
 ## Technologies Used
 
