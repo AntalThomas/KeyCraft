@@ -1,7 +1,7 @@
 {
   "name": "KeyCraft",
   "author": "Blake Varbai-Heward",
-  "description": "manifest.json description",
+  "description": "KeyCraft: Your Secure Password Generator",
   "private": true,
   "version": "1.1.0",
   "type": "module",
