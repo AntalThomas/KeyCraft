@@ -10,10 +10,7 @@ KeyCraft is a powerful and easy-to-use browser extension designed to help you cr
 
 ## Installation
 
-**_ Link to the extension once on the app store goes here _**
-
-- [Chrome Web Store](https://www./)
-- [Firefox Add-Ons](https://www./)
+- [Chrome Web Store](https://chromewebstore.google.com/detail/mhbochiocgfckabgjndbecalolooflai?utm_source=item-share-cb)
 
 ## Usage
 
