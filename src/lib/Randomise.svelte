@@ -57,7 +57,7 @@
 </script>
 
 <!-- Length Input -->
-<div class="textLeftAlign">
+<div>
   <div class="lengthInput">
     <label for="passwordLength">↔</label>
     <input
@@ -66,14 +66,13 @@
       on:input={randomise}
       min="6"
       max="30"
-      class="form-control-short"
     />
     <input type="range" bind:value={maxLengthPassword} min="6" max="30" />
   </div>
 </div>
 
 <!-- Amount Input -->
-<div class="textLeftAlign">
+<div>
   <div class="lengthInput">
     <label for="passwordAmount">↕</label>
     <input
@@ -81,7 +80,6 @@
       bind:value={amountOfPasswords}
       min="1"
       max="10"
-      class="form-control-short"
     />
     <input type="range" bind:value={amountOfPasswords} min="1" max="10" />
   </div>
@@ -89,24 +87,24 @@
 
 <!-- Password Options -->
 <div class="optionsSelection">
-  <button 
-    class="char-type-button" 
-    class:active={includeUppercase} 
+  <button
+    class="char-type-button"
+    class:active={includeUppercase}
     on:click={() => { includeUppercase = !includeUppercase; clearError(); }}
   >A-Z</button>
-  <button 
-    class="char-type-button" 
-    class:active={includeLowercase} 
+  <button
+    class="char-type-button"
+    class:active={includeLowercase}
     on:click={() => { includeLowercase = !includeLowercase; clearError(); }}
-  >a-z</button>
-  <button 
-    class="char-type-button" 
-    class:active={includeNumbers} 
+    >a-z</button>
+  <button
+    class="char-type-button"
+    class:active={includeNumbers}
     on:click={() => { includeNumbers = !includeNumbers; clearError(); }}
   >0-9</button>
-  <button 
-    class="char-type-button" 
-    class:active={includeSymbols} 
+  <button
+    class="char-type-button"
+    class:active={includeSymbols}
     on:click={() => { includeSymbols = !includeSymbols; clearError(); }}
   >!@#</button>
 </div>
@@ -119,32 +117,33 @@
 <div class="textarea-container">
   <div class="actions-container">
     <button
-      class="copy-button"
+      class="no-background"
       on:click={() => {
         navigator.clipboard.writeText(randomPassword);
       }}
       title="Copy to clipboard"
-      aria-label="Copy all to clipboard"
-    >⿻</button> 
-    <button on:click={randomise} class="generate-button">↻</button>
+      aria-label="Copy all to clipboard">⿻</button>
+
+    <button on:click={randomise} class="no-background">↻</button>
+
     <button
-      class="generate-button coffee-button"
-      on:click={() => window.open('https://coff.ee/blakeheward', '_blank', 'noopener,noreferrer')}
+      class="no-background"
+      on:click={() =>
+        window.open(
+          "https://coff.ee/blakeheward",
+          "_blank",
+          "noopener,noreferrer"
+        )}
       title="Buy me a coffee"
-      aria-label="Buy me a coffee"
-    >
+      aria-label="Buy me a coffee">
       <img src="/coffee.svg" alt="Buy me a coffee" />
     </button>
   </div>
+
   <textarea class="textArea" value={randomPassword} rows="10"></textarea>
 </div>
 
 <style>
-  /* General Layout */
-  .textLeftAlign {
-    text-align: left;
-  }
-
   /* Input Controls (Length, Amount) */
   .lengthInput {
     display: flex;
@@ -156,11 +155,6 @@
   .lengthInput label {
     width: 1.5em;
     text-align: center;
-    display: inline-block;
-  }
-
-  .form-control-short {
-    width: 2em;
   }
 
   input[type="range"] {
@@ -170,27 +164,27 @@
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
-    margin: 0;
   }
 
   /* Character Type Selection Buttons */
   .optionsSelection {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     margin-top: 1em;
     gap: 0.5em;
   }
 
   .char-type-button {
-    padding: 0.5em 1em;
     border: 1px solid var(--wxt-color-gray-400, #ccc);
     background-color: var(--wxt-color-gray-200, #f0f0f0);
     color: var(--wxt-color-gray-800, #333);
-    border-radius: 0.375rem;
+    border-radius: 0.4rem;
     cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition:
+      background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out,
+      color 0.2s ease-in-out;
     user-select: none;
   }
 
@@ -216,7 +210,6 @@
 
   .textArea {
     width: 100%;
-    height: 12.5em;
     font-size: 1.2em;
     resize: none;
     box-sizing: border-box;
@@ -224,62 +217,33 @@
 
   .actions-container {
     position: absolute;
-    top: 0.5em;
-    right: 0.5em;
+    right: 0.3em;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    margin-top: 0.5em;
+    gap: 3px;
     z-index: 10;
   }
 
-  .copy-button {
-    font-size: 1.3em;
-    color: var(--wxt-text-color-dim, #ccc); 
-    width: 2.2em;
-    height: 2.2em;
-    padding: 0;
+  .no-background {
+    font-size: 1.5em;
+    background-color: transparent;
+    border: none;
+    padding: 0.2em;
     cursor: pointer;
-    background-color: transparent;
-    border: none;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
   }
 
-  .copy-button:hover,
-  .copy-button:focus {
-    background-color: transparent;
-    outline: none;
-    border: none;
-  }
-
-  .generate-button {
-    font-size: 1.3em; 
-    padding: 0.1em 0.4em;
-    line-height: 1;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    height: 2.2em; 
-    min-width: 2.2em; 
-    background-color: transparent;
-    border: none;
-    color: var(--wxt-text-color-dim, #ccc); 
-    cursor: pointer; 
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .generate-button:focus {
+  .no-background:focus {
     outline: none;
   }
 
-  .coffee-button img {
-    width: 1.1em; 
-    height: 1.1em;
-    display: block;
+  .actions-container button img {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
   }
-  
+
   /* Error Message */
   .error-message {
     color: var(--wxt-color-red-500, red);
