@@ -118,15 +118,23 @@
 <!-- Text Area with Overlayed Actions -->
 <div class="textarea-container">
   <div class="actions-container">
-  <button
-    class="copy-button"
-    on:click={() => {
-      navigator.clipboard.writeText(randomPassword);
-    }}
-    title="Copy to clipboard"
-    aria-label="Copy all to clipboard"
-  >⿻</button>
-  <button on:click={randomise} class="generate-button">↻</button>
+    <button
+      class="copy-button"
+      on:click={() => {
+        navigator.clipboard.writeText(randomPassword);
+      }}
+      title="Copy to clipboard"
+      aria-label="Copy all to clipboard"
+    >⿻</button> 
+    <button on:click={randomise} class="generate-button">↻</button>
+    <button
+      class="generate-button coffee-button"
+      on:click={() => window.open('https://coff.ee/blakeheward', '_blank', 'noopener,noreferrer')}
+      title="Buy me a coffee"
+      aria-label="Buy me a coffee"
+    >
+      <img src="/coffee.svg" alt="Buy me a coffee" />
+    </button>
   </div>
   <textarea class="textArea" value={randomPassword} rows="10"></textarea>
 </div>
@@ -266,6 +274,12 @@
     outline: none;
   }
 
+  .coffee-button img {
+    width: 1.1em; 
+    height: 1.1em;
+    display: block;
+  }
+  
   /* Error Message */
   .error-message {
     color: var(--wxt-color-red-500, red);
