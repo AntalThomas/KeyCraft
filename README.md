@@ -25,8 +25,3 @@ KeyCraft is a powerful and easy-to-use browser extension designed to help you cr
 - [Svelte](https://svelte.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [WXT - Web Extension Framework](https://wxt.dev/)
-
-
-## Future Features
-
-- Bulk create passwords and have them export to a text file

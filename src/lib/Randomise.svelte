@@ -64,11 +64,11 @@
       type="number"
       bind:value={maxLengthPassword}
       on:input={randomise}
-      min="1"
+      min="6"
       max="30"
       class="form-control-short"
     />
-    <input type="range" bind:value={maxLengthPassword} min="1" max="30" />
+    <input type="range" bind:value={maxLengthPassword} min="6" max="30" />
   </div>
 </div>
 

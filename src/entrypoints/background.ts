@@ -1,3 +1,6 @@
 export default defineBackground(() => {
-  console.log('Hello background!', { id: browser.runtime.id });
+  browser.action.onClicked.addListener((tab) => {
+    const uiPage = browser.runtime.getURL("/popup.html"); 
+    browser.tabs.create({ url: uiPage });
+  });
 });
