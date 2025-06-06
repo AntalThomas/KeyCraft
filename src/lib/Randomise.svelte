@@ -1,4 +1,5 @@
 <script lang="ts">
+  // Variables
   let maxLengthPassword: number = 12;
   let amountOfPasswords: number = 1;
   let randomPassword: string = "";
@@ -11,6 +12,7 @@
   let characterTypeError: string = "";
   let errorTimeout: number | undefined = undefined;
 
+  // Functions
   const clearError = () => {
     if (characterTypeError) {
       characterTypeError = "";
@@ -39,14 +41,27 @@
       return;
     }
 
+    const NUM_POSSIBLE_UINT32_VALUES = 2**32; // 2**32, which is 4294967296
+    // Calculate the largest multiple of characterPool.length that is less than NUM_POSSIBLE_UINT32_VALUES.
+    // Values from randomValues[0] are in the range [0, NUM_POSSIBLE_UINT32_VALUES - 1].
+    // We will reject randomValues[0] if it is >= safeRangeEnd.
+    const safeRangeEnd = Math.floor(NUM_POSSIBLE_UINT32_VALUES / characterPool.length) * characterPool.length;
+
     const passwordsArray: string[] = [];
     for (let j = 0; j < amountOfPasswords; j++) {
       let singlePasswordChars: string[] = [];
 
       for (let i = 0; i < maxLengthPassword; i++) {
+        let randomNumber;
         const randomValues = new Uint32Array(1);
-        window.crypto.getRandomValues(randomValues);
-        let randomIndex: number = randomValues[0] % characterPool.length;
+        do {
+          window.crypto.getRandomValues(randomValues);
+          randomNumber = randomValues[0];
+        } while (randomNumber >= safeRangeEnd);
+        // Now randomNumber is in the range [0, safeRangeEnd - 1], which is a range
+        // whose length is an exact multiple of characterPool.length.
+        // So, the modulo operation will be unbiased.
+        let randomIndex: number = randomNumber % characterPool.length;
         singlePasswordChars.push(characterPool[randomIndex]);
       }
       passwordsArray.push(singlePasswordChars.join(""));
